@@ -23,7 +23,7 @@ const students = {
   getCountClass: async (obj) => await getCountClass(obj),
   getStudentByClass: async (req) => {
     await getStudentByClass(req.params);
-  }
+  },
 };
 
 module.exports = students;

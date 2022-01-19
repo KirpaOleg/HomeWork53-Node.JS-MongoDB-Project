@@ -93,12 +93,12 @@ const updateStudentById = async (obj) => {
 };
 
 const getCountClass = async (obj) => {
-  const count = await Student.count({class: obj});
+  const count = await Student.count({ class: obj });
   return count;
 };
 
 const getStudentByClass = async (req) => {
-  const studentClass = await Student.find({class: req});
+  const studentClass = await Student.find({ class: req });
   return studentClass;
 };
 

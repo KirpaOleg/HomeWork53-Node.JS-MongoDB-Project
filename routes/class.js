@@ -9,13 +9,18 @@ router.get('/', async (req, res) => {
   const classFilology = await students.getCountClass('Filology');
   const classNature = await students.getCountClass('Nature');
   const classAll = classMath + classFilology + classNature;
-  res.render('class', {classMath: classMath, classFilology: classFilology, classNature: classNature, classAll: classAll});
+  res.render('class', {
+    classMath,
+    classFilology,
+    classNature,
+    classAll,
+  });
 });
 
 router.get('/:class', async (req, res) => {
   const student = await students.getStudentByClass(req.params);
   console.log(student);
-  // res.render('classCreate', {classMath: classMath});
+  // res.render('classCreate');
 });
 
 module.exports = router;
