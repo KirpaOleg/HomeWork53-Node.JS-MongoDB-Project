@@ -5,22 +5,24 @@ const upload = multer();
 const students = require('../controller/students');
 
 router.get('/', async (req, res) => {
-  const classMath = await students.getCountClass('Math');
-  const classFilology = await students.getCountClass('Filology');
-  const classNature = await students.getCountClass('Nature');
-  const classAll = classMath + classFilology + classNature;
-  res.render('class', {
-    classMath,
-    classFilology,
-    classNature,
-    classAll,
-  });
+  const classMath = await students.getCountAllClass();
+  res.render('class', classMath);
 });
 
 router.get('/:class', async (req, res) => {
-  const student = await students.getStudentByClass(req.params);
-  console.log(student);
-  // res.render('classCreate');
+  const studentsList = await students.getStudentByClass(req.params);
+  res.render('classCreate', {studentsList: studentsList});
+});
+
+router.get('/student/:id', async (req, res, next) => {
+  const student = await students.getStudentById(req.params.id);
+  res.render('student', { student });
+});
+
+router.post('/student/:id', upload.none(), async (req, res) => {
+  // addMark({id: '61e443c6b0c2b2498e8f7079', mark: 4})
+  await students.addMark(req.body.marks);
+  // res.send('addMark is ok');
 });
 
 module.exports = router;

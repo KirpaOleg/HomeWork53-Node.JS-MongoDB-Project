@@ -1,12 +1,5 @@
 const { Schema, model } = require('mongoose');
 
-const eduSchema = new Schema({
-  name: {
-    type: String,
-  },
-  marks: [Number],
-});
-
 const student = new Schema({
   name: {
     type: String,
@@ -44,12 +37,10 @@ const student = new Schema({
     father: {
       name: {
         type: String,
-        minLength: 1,
         maxLength: 50,
       },
       surname: {
         type: String,
-        minLength: 1,
         maxLength: 50,
       },
       number: String,
@@ -57,12 +48,10 @@ const student = new Schema({
     mother: {
       name: {
         type: String,
-        minLength: 1,
         maxLength: 50,
       },
       surname: {
         type: String,
-        minLength: 1,
         maxLength: 50,
       },
       number: String,
@@ -73,7 +62,7 @@ const student = new Schema({
     enum: ['Math', 'Filology', 'Nature'],
   },
   classNumber: String,
-  education: [eduSchema],
+  marks: [Number],
 });
 
 module.exports = model('Student', student);

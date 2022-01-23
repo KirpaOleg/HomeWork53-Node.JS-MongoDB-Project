@@ -1,4 +1,8 @@
 const Student = require('./schemas/students');
+const charToUpper = (str) => {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 
 const createStudent = async (obj) => {
   const student = new Student({
@@ -92,15 +96,26 @@ const updateStudentById = async (obj) => {
   );
 };
 
-const getCountClass = async (obj) => {
-  const count = await Student.count({ class: obj });
-  return count;
+const getCountAllClass = async (arr) => {
+  const classCounters = [];
+  for await (let item of arr) {
+    const count = await Student.count({ class: item });
+    classCounters.push(count);
+  }
+  return classCounters;
 };
 
 const getStudentByClass = async (req) => {
-  const studentClass = await Student.find({ class: req });
+  const studentClass = await Student.find({ class: charToUpper(req) });
   return studentClass;
 };
+
+const addMark = async (obj) => {
+  const student = await getStudentById(obj.id);
+  student.marks.push(obj.mark);
+  student.save();
+}
+
 
 module.exports = {
   createStudent,
@@ -108,6 +123,7 @@ module.exports = {
   deleteStudentById,
   getStudentById,
   updateStudentById,
-  getCountClass,
+  getCountAllClass,
   getStudentByClass,
+  addMark,
 };

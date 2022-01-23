@@ -11,7 +11,8 @@
           <% studentsList.forEach(student => {%>
           <div class="user">
             <div class="name">
-              <%= student.name %> <%= student.surname %>  
+              <a href="/class/student/<%= student._id %>"><%= student.name %> <%= student.surname %>  </a>
+              
             </div>
             <div>
               <%= student.classNumber %>

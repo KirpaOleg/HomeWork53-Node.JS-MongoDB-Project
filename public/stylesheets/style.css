@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  padding: 10px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 a {
@@ -162,6 +162,13 @@ select {
   width: 410px;
   height: 455px;
 }
+.family-2 {
+  padding: 10px;
+  border: 2px solid red;
+  border-radius: 5px;
+  width: 410px;
+  height: 455px;
+}
 .bold {
   font-weight: bold;
   margin-top: 10px;
@@ -183,4 +190,58 @@ select {
   justify-content: space-between;
   padding: 10px 50px 10px 50px;
   margin-top: 10px;
+}
+.add-marks {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 40px;
+  margin-left: 26px;
+}
+.list-marks {
+  width: 40px;
+  height: 40px;
+  border: 2px solid gray;
+  margin: 20px 10px;
+}
+.bubble {
+  background: red;
+  color: white;
+  padding: 8px 15px;
+  position: absolute;
+  border-radius: 4px;
+  top: 650px;
+  margin-left: -120px;
+}
+.form-registration {
+  margin: 0 auto;
+  width: 360px;
+  height: 360px;
+  border: 2px solid gray;
+  border-radius: 5px;
+
+}
+.answer-reg {
+  margin: 0 auto;
+  border: 2px solid red;
+  border-radius: 5px;
+  text-align: center;
+  width: 290px;
+  height: 60px;
+  padding-top: 40px;
+  display: none;
+}
+.input-reg {
+  margin: 20px 0px 20px 75px;
+}
+.button-reg {
+  margin: 40px 0px 0px 50px;
+}
+.reg {
+text-align: center;
+}
+.button-click button-reg {
+  width: 300px;
+}
+.form {
+  margin-top: 200px;
 }
